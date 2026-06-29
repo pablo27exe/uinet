@@ -1,3 +1,10 @@
-from django.shortcuts import render
+# kpis/views.py
+from django.http import JsonResponse
+from django.views.decorators.csrf import csrf_exempt
 
-# Create your views here.
+@csrf_exempt
+def health_check(request):
+    return JsonResponse({
+        "status": "ok",
+        "message": "El backend de chatbot_UINET está funcionando correctamente"
+    })
